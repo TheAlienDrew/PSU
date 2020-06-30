@@ -1,0 +1,14 @@
+{
+  "name": "PSU PC Gaming (indev)",
+  "description": "This bot is designed for mainly matchmaking and team grouping functionality, but features may be expanded upon in the future.",
+  "version": "0.0.0",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js"
+  },
+  "dependencies": {
+    "discord.js": "^11.5.1",
+    "node-fetch": "^2.6.0",
+    "request": ">=2.81.0"
+  }
+}
