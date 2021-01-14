@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PSU - DARS Clarified Credits Earned
 // @namespace    https://thealiendrew.github.io/
-// @version      1.0.0
+// @version      1.0.1
 // @description  This will show the total number of credits earned, and how much of the earned credits were taken from PSU or external sources, along with showing the total amount from external sources (which may not have been transferred).
 // @author       AlienDrew
 // @match        https://app.banner.pdx.edu/uachieve_selfservice/audit/read.html*
@@ -139,10 +139,10 @@ let contentStart = '<i>';
 let contentEnd = '</i>';
 let newline = '<br>';
 let divInnerHTML = pStart+titleStart+ 'External colleges/universities' +titleEnd+newline+contentStart +externalUni.credits+' credits (from '+externalUni.courses+' courses)' +contentEnd+pEnd+newline +
-                   pStart+titleStart+ 'Not used at PSU' +titleEnd+newline+contentStart +total.unused.credits+' credits (from '+total.unused.courses+' courses)' +contentEnd+pEnd +
+                   pStart+titleStart+ 'Not used in Degree at PSU' +titleEnd+newline+contentStart +total.unused.credits+' credits (from '+total.unused.courses+' courses)' +contentEnd+pEnd +
                    pStart+titleStart+ 'Transferred to PSU' +titleEnd+newline+contentStart +uni.fromTransfer.credits+' credits (from '+uni.fromTransfer.courses+' courses)' +contentEnd+pEnd +
                    pStart+titleStart+ 'Earned at PSU' +titleEnd+newline+contentStart +uni.fromUni.credits+' credits (from '+uni.fromUni.courses+' courses)' +contentEnd+pEnd+newline +
-                   pStart+titleStart+ 'PSU Total' +titleEnd+newline+contentStart +total.used.credits+' credits (from '+total.used.courses+' courses)' +contentEnd+pEnd;
+                   pStart+titleStart+ 'PSU Total for Degree' +titleEnd+newline+contentStart +total.used.credits+' credits (from '+total.used.courses+' courses)' +contentEnd+pEnd;
 let clarifiedCreditsEarned = document.createElement('div');
 clarifiedCreditsEarned.style = divStyleLight;
 clarifiedCreditsEarned.innerHTML = divInnerHTML;
