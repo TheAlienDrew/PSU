@@ -1,2 +1,2 @@
 # PSU
-This repo is for programs/applications that I may right for extracurriculars at my college, Portland State University.
+This repo is for programs/applications that I may be of use for students, or in my extracurriculars at Portland State University.
