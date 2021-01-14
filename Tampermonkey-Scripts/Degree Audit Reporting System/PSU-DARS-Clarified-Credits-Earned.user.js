@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PSU - DARS Clarified Credits Earned
 // @namespace    https://thealiendrew.github.io/
-// @version      1.1.3
+// @version      1.1.4
 // @description  This will show the total number of credits earned, and how much of the earned credits were taken from PSU or external sources, along with showing the total amount from external sources (which may not have been transferred).
 // @author       AlienDrew
 // @match        https://app.banner.pdx.edu/uachieve_selfservice/audit/read.html*
@@ -159,7 +159,7 @@ document.body.appendChild(clarifiedCreditsEarned);
 
 // this fixes issues with darkreader
 setInterval(function() {
-    let hadDarkreaderOn = document.head.innerHTML.includes('darkreader');
+    let hadDarkreaderOn = document.head.querySelector('.darkreader');
     let cssText = clarifiedCreditsEarned.style.cssText;
 
     let needsToChangeToDark = hadDarkreaderOn && cssText.startsWith(divStyleLight),
