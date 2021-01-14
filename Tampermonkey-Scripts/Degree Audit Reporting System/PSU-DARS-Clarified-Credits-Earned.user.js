@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PSU - DARS Clarified Credits Earned
 // @namespace    https://thealiendrew.github.io/
-// @version      1.1.0
+// @version      1.1.1
 // @description  This will show the total number of credits earned, and how much of the earned credits were taken from PSU or external sources, along with showing the total amount from external sources (which may not have been transferred).
 // @author       AlienDrew
 // @match        https://app.banner.pdx.edu/uachieve_selfservice/audit/read.html*
@@ -146,9 +146,9 @@ let contentStartLight = '<i style="' + childColorStyleLight + '">';
 let contentStartDark = '<i style="' + childColorStyleDark + '">';
 let contentEnd = '</i>';
 let newline = '<br>';
-let divInnerHTML = pStartLight+titleStartLight+ 'Transferred' +titleEnd+newline+contentStartLight +total.transferred.credits+' credits (from '+total.transferred.courses+' courses)' +contentEnd+pEnd +
+let divInnerHTML = pStartLight+titleStartLight+ 'Transferred' +titleEnd+newline+contentStartLight +total.transferred.credits+' credits (from '+total.transferred.courses+' courses)' +contentEnd+pEnd+newline +
                    pStartLight+titleStartLight+ 'No Transfer Grade Used' +titleEnd+newline+contentStartLight +total.noTransferGradeUsed.credits+' credits (from '+total.noTransferGradeUsed.courses+' courses)' +contentEnd+pEnd +
-                   pStartLight+titleStartLight+ 'Precedes Transfer Grade' +titleEnd+newline+contentStartLight +total.precedesTransferGrade.credits+' credits (from '+total.precedesTransferGrade.courses+' courses)' +contentEnd+pEnd+newline +
+                   pStartLight+titleStartLight+ 'Precedes Transfer Grade' +titleEnd+newline+contentStartLight +total.precedesTransferGrade.credits+' credits (from '+total.precedesTransferGrade.courses+' courses)' +contentEnd+pEnd +
                    pStartLight+titleStartLight+ 'Earned at PSU' +titleEnd+newline+contentStartLight +total.uni.credits+' credits (from '+total.uni.courses+' courses)' +contentEnd+pEnd+newline +
                    pStartLight+titleStartLight+ 'Total (w/o "No Transfer Grade Used")' +titleEnd+newline+contentStartLight +(total.all.credits-total.noTransferGradeUsed.credits)+' credits (from '+(total.all.courses-total.noTransferGradeUsed.courses)+' courses)' +contentEnd+pEnd +
                    pStartLight+titleStartLight+ 'Total (w/ "No Transfer Grade Used")' +titleEnd+newline+contentStartLight +total.all.credits+' credits (from '+total.all.courses+' courses)' +contentEnd+pEnd;
