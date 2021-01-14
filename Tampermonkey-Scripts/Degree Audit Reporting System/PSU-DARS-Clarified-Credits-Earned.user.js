@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PSU - DARS Clarified Credits Earned
 // @namespace    https://thealiendrew.github.io/
-// @version      1.1.2
+// @version      1.1.3
 // @description  This will show the total number of credits earned, and how much of the earned credits were taken from PSU or external sources, along with showing the total amount from external sources (which may not have been transferred).
 // @author       AlienDrew
 // @match        https://app.banner.pdx.edu/uachieve_selfservice/audit/read.html*
@@ -127,7 +127,7 @@ let colorStyleLight = 'color: rgb(255, 255, 255); background-color: rgba(0, 0, 0
 let colorStyleDark = 'color: rgb(0, 0, 0) !important; background-color: rgba(255, 255, 255, 0.667) !important'
 let childColorStyleLight = 'color: rgb(255, 255, 255); background-color: transparent !important'
 let childColorStyleDark = 'color: rgb(0, 0, 0) !important; background-color: transparent !important'
-let divStyleBase = 'display: inline-block; position: fixed; bottom: 10px; right: 10px; padding: 10px; border-radius: 10px; ';
+let divStyleBase = 'display: inline-block; padding: 10px; border-radius: 10px; position: fixed; right: 10px; top: 50%; transform: translateY(-50%); ';
 let divStyleLight = divStyleBase + colorStyleLight;
 let divStyleDark = divStyleBase + colorStyleDark;
 let pStyleBase = 'margin: 0px !important; font-size: 10pt; ';
@@ -147,11 +147,11 @@ let contentStartDark = '<i style="' + childColorStyleDark + '">';
 let contentEnd = '</i>';
 let newline = '<br>';
 let divInnerHTML = pStartLight+titleStartLight+ 'Transferred' +titleEnd+newline+contentStartLight +total.transferred.credits+' credits (from '+total.transferred.courses+' courses)' +contentEnd+pEnd+newline +
-                   pStartLight+titleStartLight+ 'No Transfer Grade Used' +titleEnd+newline+contentStartLight +total.noTransferGradeUsed.credits+' credits (from '+total.noTransferGradeUsed.courses+' courses)' +contentEnd+pEnd +
-                   pStartLight+titleStartLight+ 'Precedes Transfer Grade' +titleEnd+newline+contentStartLight +total.precedesTransferGrade.credits+' credits (from '+total.precedesTransferGrade.courses+' courses)' +contentEnd+pEnd +
+                   pStartLight+titleStartLight+ 'No Transfer Grade Used (--)' +titleEnd+newline+contentStartLight +total.noTransferGradeUsed.credits+' credits (from '+total.noTransferGradeUsed.courses+' courses)' +contentEnd+pEnd +
+                   pStartLight+titleStartLight+ 'Precedes Transfer Grade (T)' +titleEnd+newline+contentStartLight +total.precedesTransferGrade.credits+' credits (from '+total.precedesTransferGrade.courses+' courses)' +contentEnd+pEnd +
                    pStartLight+titleStartLight+ 'Earned at PSU' +titleEnd+newline+contentStartLight +total.uni.credits+' credits (from '+total.uni.courses+' courses)' +contentEnd+pEnd+newline +
-                   pStartLight+titleStartLight+ 'Total (w/o "No Transfer Grade Used")' +titleEnd+newline+contentStartLight +(total.all.credits-total.noTransferGradeUsed.credits)+' credits (from '+(total.all.courses-total.noTransferGradeUsed.courses)+' courses)' +contentEnd+pEnd +
-                   pStartLight+titleStartLight+ 'Total (w/ "No Transfer Grade Used")' +titleEnd+newline+contentStartLight +total.all.credits+' credits (from '+total.all.courses+' courses)' +contentEnd+pEnd;
+                   pStartLight+titleStartLight+ 'Total (excluding \'--\')' +titleEnd+newline+contentStartLight +(total.all.credits-total.noTransferGradeUsed.credits)+' credits (from '+(total.all.courses-total.noTransferGradeUsed.courses)+' courses)' +contentEnd+pEnd+newline +
+                   pStartLight+titleStartLight+ 'Total' +titleEnd+newline+contentStartLight +total.all.credits+' credits (from '+total.all.courses+' courses)' +contentEnd+pEnd;
 let clarifiedCreditsEarned = document.createElement('div');
 clarifiedCreditsEarned.style = divStyleLight;
 clarifiedCreditsEarned.innerHTML = divInnerHTML;
