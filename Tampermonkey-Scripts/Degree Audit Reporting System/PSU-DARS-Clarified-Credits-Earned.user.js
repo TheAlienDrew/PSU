@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PSU - DARS Clarified Credits Earned
 // @namespace    https://thealiendrew.github.io/
-// @version      1.1.1
+// @version      1.1.2
 // @description  This will show the total number of credits earned, and how much of the earned credits were taken from PSU or external sources, along with showing the total amount from external sources (which may not have been transferred).
 // @author       AlienDrew
 // @match        https://app.banner.pdx.edu/uachieve_selfservice/audit/read.html*
@@ -136,12 +136,12 @@ let pStyleDark = pStyleBase + childColorStyleDark;
 let pStartLight = '<p style="' + pStyleLight + '">';
 let pStartDark = '<p style="' + pStyleDark + '">';
 let pEnd = '</p>';
-let titleStyleBase = 'font-size: 125%; ';
+let titleStyleBase = 'font-size: 125%; font-weight: bold; text-decoration: underline; ';
 let titleStyleLight = titleStyleBase + childColorStyleLight;
 let titleStyleDark = titleStyleBase + childColorStyleDark;
-let titleStartLight = '<b style="' + titleStyleLight + '"><u>';
-let titleStartDark = '<b style="' + titleStyleDark + '"><u>';
-let titleEnd = '</b></u>';
+let titleStartLight = '<span style="' + titleStyleLight + '">';
+let titleStartDark = '<span style="' + titleStyleDark + '">';
+let titleEnd = '</span>';
 let contentStartLight = '<i style="' + childColorStyleLight + '">';
 let contentStartDark = '<i style="' + childColorStyleDark + '">';
 let contentEnd = '</i>';
@@ -174,9 +174,9 @@ setInterval(function() {
 
             p.style.cssText = needsToChangeToDark ? pStyleDark : pStyleLight;
 
-            let allB = p.querySelectorAll('b');
-            for (let j = 0; j < allB.length; j++) {
-                allB[j].style.cssText = needsToChangeToDark ? titleStyleDark : titleStyleLight;
+            let allSpan = p.querySelectorAll('span');
+            for (let j = 0; j < allSpan.length; j++) {
+                allSpan[j].style.cssText = needsToChangeToDark ? titleStyleDark : titleStyleLight;
             }
 
             let allI = p.querySelectorAll('i');
