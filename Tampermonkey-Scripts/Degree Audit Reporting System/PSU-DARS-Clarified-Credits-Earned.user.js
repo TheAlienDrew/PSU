@@ -152,7 +152,6 @@ document.body.appendChild(clarifiedCreditsEarned);
 setInterval(function() {
     let hadDarkreaderOn = document.head.innerHTML.includes('darkreader');
     let cssText = clarifiedCreditsEarned.style.cssText;
-console.log(hadDarkreaderOn);
     if (hadDarkreaderOn && cssText.startsWith(divStyleLight)) clarifiedCreditsEarned.style.cssText = divStyleDark;
     else if (!hadDarkreaderOn && cssText.startsWith(divStyleDark)) clarifiedCreditsEarned.style.cssText = divStyleLight;
 }, 100);
